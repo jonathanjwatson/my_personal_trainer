@@ -11,6 +11,8 @@ var APP_ID = undefined;
 
 var SKILL_NAME = "My Personal Trainer";
 var GET_FACT_MESSAGE = "Here's your fact: ";
+var GET_TODAY_MESSAGE = "Of course.";
+var GET_DISTANCE_MESSAGE = "All the way.";
 var HELP_MESSAGE = "You can ask if you're going running today, or, you can say exit... What can I help you with?";
 var HELP_REPROMPT = "What can I help you with?";
 var STOP_MESSAGE = "Goodbye!";
@@ -19,19 +21,17 @@ var STOP_MESSAGE = "Goodbye!";
 //TODO: Replace this data with your own.  You can find translations of this data at http://github.com/alexa/skill-sample-node-js-fact/data
 //=========================================================================================================================================
 var data = [
-    "A year on Mercury is just 88 days long.",
-    "Despite being farther from the Sun, Venus experiences higher temperatures than Mercury.",
-    "Venus rotates counter-clockwise, possibly because of a collision in the past with an asteroid.",
-    "On Mars, the Sun appears about half the size as it does on Earth.",
-    "Earth is the only planet not named after a god.",
-    "Jupiter has the shortest day of all the planets.",
-    "The Milky Way galaxy will collide with the Andromeda Galaxy in about 5 billion years.",
-    "The Sun contains 99.86% of the mass in the Solar System.",
-    "The Sun is an almost perfect sphere.",
-    "A total solar eclipse can happen once every 1 to 2 years. This makes them a rare event.",
-    "Saturn radiates two and a half times more energy into space than it receives from the sun.",
-    "The temperature inside the Sun can reach 15 million degrees Celsius.",
-    "The Moon is moving approximately 3.8 cm away from our planet every year."
+    "The best preparation for tomorrow is doing your best today.",
+    "Put your heart, mind, and soul into even your smallest acts. This is the secret of success.",
+    "I can't change the direction of the wind, but I can adjust my sails to always reach my destination. ",
+    "My mission in life is not merely to survive, but to thrive. ",
+    "Health is the greatest gift. ",
+    "Keep your face toward the sunshine - and shadows will fall behind you. ",
+    "What we think we become. ",
+    "What lies behind you and what lies in front of you, pales in comparison to what lies inside you. ",
+    "Believe you can and you're halfway there. ",
+    "Start by doing what's necessary; then you do what's possible. And suddenly you are doing the impossible. ",
+    "Perfection is not attainable. But if we chase perfection, we can catch excellence. "
 ];
 
 //=========================================================================================================================================
@@ -53,6 +53,20 @@ var handlers = {
         var factIndex = Math.floor(Math.random() * factArr.length);
         var randomFact = factArr[factIndex];
         var speechOutput = GET_FACT_MESSAGE + randomFact;
+        this.emit(':tellWithCard', speechOutput, SKILL_NAME, randomFact)
+    },
+    'GetTodayMessageIntent': function() {
+        var factArr = data;
+        var factIndex = Math.floor(Math.random() * factArr.length);
+        var randomFact = factArr[factIndex];
+        var speechOutput = GET_TODAY_MESSAGE + randomFact;
+        this.emit(':tellWithCard', speechOutput, SKILL_NAME, randomFact)
+    },
+    'GetDistanceMessageIntent': function() {
+        var factArr = data;
+        var factIndex = Math.floor(Math.random() * factArr.length);
+        var randomFact = factArr[factIndex];
+        var speechOutput = GET_DISTANCE_MESSAGE + randomFact;
         this.emit(':tellWithCard', speechOutput, SKILL_NAME, randomFact)
     },
     'AMAZON.HelpIntent': function () {
