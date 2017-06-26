@@ -11,8 +11,8 @@ var APP_ID = undefined;
 
 var SKILL_NAME = "My Personal Trainer";
 var GET_FACT_MESSAGE = "Here's your fact: ";
-var GET_TODAY_MESSAGE = "Of course.";
-var GET_DISTANCE_MESSAGE = "All the way.";
+var GET_TODAY_MESSAGE = "Of course: ";
+var GET_DISTANCE_MESSAGE = "All the way: ";
 var HELP_MESSAGE = "You can ask if you're going running today, or, you can say exit... What can I help you with?";
 var HELP_REPROMPT = "What can I help you with?";
 var STOP_MESSAGE = "Goodbye!";
